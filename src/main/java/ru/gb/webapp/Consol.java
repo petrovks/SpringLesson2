@@ -1,9 +1,8 @@
 package ru.gb.webapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import ru.gb.webapp.services.CartService;
 
-import java.io.IOException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Consol {
