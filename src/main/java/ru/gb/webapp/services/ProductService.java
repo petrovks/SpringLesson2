@@ -34,4 +34,15 @@ public class ProductService {
 
     public Long getNewId() { return productRepository.getNewId(); }
 
+    public int incrementCostById(Long id) {
+        Product product = productRepository.findById(id);
+        product.setCost(product.getCost() + 1);
+        return product.getCost();
+    }
+
+    public int decrementCostById(Long id) {
+        Product product = productRepository.findById(id);
+        product.setCost(product.getCost() - 1);
+        return product.getCost();
+    }
 }
