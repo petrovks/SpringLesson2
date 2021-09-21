@@ -32,6 +32,7 @@
         <!--        Полная очистка схемы и создание ее по разметке Hibernate. После закрытия Factory выполняется DROP -->
 
         <mapping class="ru.gb.webapp.model.Product"/>
+        <mapping class="ru.gb.webapp.model.User"/>
 
     </session-factory>
 </hibernate-configuration>

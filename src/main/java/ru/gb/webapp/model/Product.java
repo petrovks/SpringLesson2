@@ -14,6 +14,10 @@ public class Product {
     @Column(name = "cost")
     private int cost;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Product() {
 
     }
@@ -46,6 +50,14 @@ public class Product {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void print() {

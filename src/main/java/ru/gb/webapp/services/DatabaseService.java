@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.gb.webapp.dao.ProductDao;
+import ru.gb.webapp.dao.UserDao;
 import ru.gb.webapp.repositories.DatabaseRepository;
 
 import javax.annotation.PostConstruct;
@@ -12,11 +13,13 @@ import javax.annotation.PostConstruct;
 public class DatabaseService {
     private DatabaseRepository databaseRepository;
     private ProductService productService;
+    private UserService userService;
 
     @Autowired
-    public DatabaseService(DatabaseRepository databaseRepository, ProductService productService) {
+    public DatabaseService(DatabaseRepository databaseRepository, ProductService productService, UserService userService) {
         this.databaseRepository = databaseRepository;
         this.productService = productService;
+        this.userService = userService;
     }
 
     @PostConstruct
@@ -24,6 +27,7 @@ public class DatabaseService {
         databaseRepository.init();
         productService.setFactory(databaseRepository.getFactory());
         productService.setProductDao(new ProductDao(databaseRepository.getFactory()));
+        userService.setUserDao(new UserDao(databaseRepository.getFactory()));
     }
 
     public SessionFactory getFactory() {

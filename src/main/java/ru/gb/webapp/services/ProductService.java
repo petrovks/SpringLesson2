@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class ProductService {
     private ProductRepository productRepository;
-    private DatabaseService databaseService;
+  //  private DatabaseService databaseService;
 
     @Autowired
     public ProductService(ProductRepository productRepository) {
