@@ -43,4 +43,16 @@ public class ProductController {
         productService.addProduct(product);
         return "redirect:/show_all";
     }
+
+    @GetMapping("/product/{id}/incrementCost")
+    public String incrementCostById(Model model, @PathVariable Long id){
+        model.addAttribute("product", productService.incrementCostById(id));
+        return "redirect:/show_all";
+    }
+
+    @GetMapping("/product/{id}/decrementCost")
+    public String decrementCostById(Model model, @PathVariable Long id){
+        model.addAttribute("product", productService.decrementCostById(id));
+        return "redirect:/show_all";
+    }
 }

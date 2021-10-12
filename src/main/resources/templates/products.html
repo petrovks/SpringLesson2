@@ -15,7 +15,9 @@
         <tr>
             <td>ID</td>
             <td>Title</td>
+            <td></td>
             <td>Price</td>
+            <td></td>
             <td></td>
         </tr>
         </thead>
@@ -23,7 +25,12 @@
         <tr th:each="s : ${products}">
             <td th:text="${s.id}"></td>
             <td th:text="${s.title}"></td>
-            <td th:text="${s.cost}"></td>
+            <td width="50px"><a th:href="@{'/product/'+ ${s.id} + '/decrementCost'}"  class="btn btn-primary">-</a>
+            </td>
+            <td width="50px" align="center" th:text="${s.cost}"></td>
+             <td width="50px"><a th:href="@{'/product/'+ ${s.id} + '/incrementCost'}" class="btn btn-primary">+</a>
+            </td>
+
             <td>
                 <a th:href="@{'/show/' + ${s.id}}" class="btn btn-primary">Инфо</a>
             </td>

@@ -43,4 +43,5 @@ public class ProductRepository {
     public Long getNewId() {
         return products.stream().mapToLong(Product::getId).max().getAsLong() + 1;
     }
+
 }
