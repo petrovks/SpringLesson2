@@ -1,15 +1,20 @@
-package ru.gb.webapp;
+package ru.gb.webapp.services;
 
-import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.gb.webapp.model.Product;
+import ru.gb.webapp.repositories.ProductRepository;
 
 import java.util.List;
 
-@Component
+@Service
 public class ProductService {
+    private ProductRepository productRepository;
 
     @Autowired
-    private ProductRepository productRepository;
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public int getSumPrice() {
         return productRepository.findAll().stream().mapToInt(Product::getCost).sum();
@@ -25,5 +30,8 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public void addProduct(String title, int cost) { productRepository.saveProduct(title, cost);}
+    public void addProduct(Product product) { productRepository.saveProduct(product);}
+
+    public Long getNewId() { return productRepository.getNewId(); }
+
 }

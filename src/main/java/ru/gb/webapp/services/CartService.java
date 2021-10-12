@@ -1,7 +1,9 @@
-package ru.gb.webapp;
+package ru.gb.webapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.gb.webapp.model.Product;
+import ru.gb.webapp.repositories.CartRepository;
 
 @Component
 public class CartService {

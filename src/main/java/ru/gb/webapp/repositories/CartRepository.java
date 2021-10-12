@@ -1,10 +1,11 @@
-package ru.gb.webapp;
+package ru.gb.webapp.repositories;
 
 import org.springframework.stereotype.Component;
+import ru.gb.webapp.model.Cart;
+import ru.gb.webapp.model.Product;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 

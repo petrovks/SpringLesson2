@@ -1,10 +1,12 @@
-package ru.gb.webapp;
+package ru.gb.webapp.repositories;
 
 import org.springframework.stereotype.Component;
+import ru.gb.webapp.model.Product;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -31,12 +33,14 @@ public class ProductRepository {
     }
 
     public List<Product> findAll() {
-        return products;
+        return Collections.unmodifiableList(products);
     }
 
-    public void saveProduct(String title, int cost) {
-        Long newId = products.stream().mapToLong(Product::getId).max().getAsLong() + 1;
-        Product product = new Product(newId, title, cost);
+    public void saveProduct(Product product) {
         products.add(product);
+    }
+
+    public Long getNewId() {
+        return products.stream().mapToLong(Product::getId).max().getAsLong() + 1;
     }
 }

@@ -1,4 +1,4 @@
-package ru.gb.webapp;
+package ru.gb.webapp.model;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @Component
 @Scope("prototype")
